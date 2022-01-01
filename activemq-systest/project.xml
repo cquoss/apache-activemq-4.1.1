@@ -56,7 +56,7 @@
     </dependency>
 
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activemq-core</artifactId>
       <version>${pom.currentVersion}</version>
       <properties>
@@ -91,7 +91,7 @@
     </dependency>
 
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activeio-core</artifactId>
       <version>${activeio_version}</version>
       <properties>

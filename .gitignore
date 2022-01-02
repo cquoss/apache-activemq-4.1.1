@@ -17,3 +17,6 @@ buildNumber.properties
 ActiveMQConnections.dot
 activemq-data/
 /data/
+/activemq-core/derbydb/
+/activemq-core/testJdbcConfig/
+/activemq-core/derby.log

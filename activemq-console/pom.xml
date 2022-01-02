@@ -27,7 +27,7 @@
   <parent>
     <groupId>org.apache.activemq</groupId>
     <artifactId>activemq-parent</artifactId>
-    <version>4.1.1</version>
+    <version>4.1.1-j8</version>
   </parent>
 
   <artifactId>activemq-console</artifactId>
@@ -37,16 +37,16 @@
   <dependencies>
     <!-- activemq related dependencies -->
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activemq-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activemq-core</artifactId>
       <type>test-jar</type>
     </dependency>
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activeio-core</artifactId>
     </dependency>
         

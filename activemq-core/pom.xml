@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.apache.activemq</groupId>
     <artifactId>activemq-parent</artifactId>
-    <version>4.1.1</version>
+    <version>4.1.1-j8</version>
   </parent>
 
   <artifactId>activemq-core</artifactId>
@@ -50,7 +50,7 @@
     </dependency>
 
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activeio-core</artifactId>
       <optional>false</optional>
     </dependency>
@@ -172,9 +172,7 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <forkMode>pertest</forkMode>
-          <childDelegation>false</childDelegation>
-          <useFile>true</useFile>
+          <reuseForks>false</reuseForks>
           <argLine>-Xmx512M</argLine>
           <includes>
             <include>**/*Test.*</include>

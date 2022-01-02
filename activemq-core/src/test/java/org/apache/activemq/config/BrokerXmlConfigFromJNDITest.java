@@ -30,28 +30,21 @@ import java.util.Hashtable;
  * @version $Revision: 467693 $
  */
 public class BrokerXmlConfigFromJNDITest extends JmsTopicSendReceiveWithTwoConnectionsTest {
-    protected ActiveMQConnectionFactory createConnectionFactory() throws Exception {
-        // START SNIPPET: example
 
-        
-//        System.err.print(System.getProperties());
-        
-        // we could put these properties into a jndi.properties
-        // on the classpath instead
-        Hashtable properties = new Hashtable();
+    protected ActiveMQConnectionFactory createConnectionFactory() throws Exception {
+
+        final Hashtable<String, String> properties = new Hashtable<>();
         properties.put("java.naming.factory.initial", "org.apache.activemq.jndi.ActiveMQInitialContextFactory");
 
         // configure the embedded broker using an XML config file
         // which is either a URL or a resource on the classpath
         
-        File f = new File(System.getProperty("basedir", "."));
-        properties.put(Context.PROVIDER_URL, "vm://localhost?brokerConfig=xbean:file:"+f+"/src/test/resources/activemq.xml");
+        final String providerUrl = "vm://localhost?brokerConfig=xbean:classpath:activemq.xml";
+        properties.put(Context.PROVIDER_URL, providerUrl);
 
-        InitialContext context = new InitialContext(properties);
-        ActiveMQConnectionFactory connectionFactory = (ActiveMQConnectionFactory) context.lookup("ConnectionFactory");
+        final InitialContext context = new InitialContext(properties);
+        return (ActiveMQConnectionFactory) context.lookup("ConnectionFactory");
 
-        // END SNIPPET: example
-        return connectionFactory;
     }
 
 }

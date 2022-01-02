@@ -93,7 +93,7 @@
       <directory>target</directory>
       <outputDirectory>/</outputDirectory>
       <includes>
-        <include>${pom.artifactId}-${pom.version}.jar</include>
+        <include>${project.artifactId}-${project.version}.jar</include>
       </includes>
     </fileSet>
     <fileSet>
@@ -113,14 +113,14 @@
          <include>backport-util-concurrent:backport-util-concurrent</include>
          <include>commons-logging:commons-logging</include>
          <include>geronimo-jms_1.1_spec:geronimo-jms_1.1_spec</include>
-         <include>${pom.groupId}:activemq-core</include>
-         <include>${pom.groupId}:activeio-core</include>
-         <include>${pom.groupId}:activemq-console</include>         
-         <include>${pom.groupId}:activemq-jaas</include>
+         <include>${project.groupId}:activemq-core</include>
+         <include>${project.groupId}:activeio-core</include>
+         <include>${project.groupId}:activemq-console</include>
+         <include>${project.groupId}:activemq-jaas</include>
          <include>mx4j:mx4j</include>         
          <include>org.apache.geronimo.specs:geronimo-j2ee-management_1.0_spec</include>
          <include>org.apache.geronimo.specs:geronimo-jms_1.1_spec</include>
-         <include>${pom.groupId}:activemq-web</include>
+         <include>${project.groupId}:activemq-web</include>
       </includes>
     </dependencySet>
     <dependencySet>
@@ -128,9 +128,9 @@
       <unpack>false</unpack>
       <scope>runtime</scope>
       <includes>
-         <include>${pom.groupId}:activemq-rar</include>
-         <include>${pom.groupId}:activemq-optional</include>
-         <include>${pom.groupId}:activecluster</include>
+         <include>${project.groupId}:activemq-rar</include>
+         <include>${project.groupId}:activemq-optional</include>
+         <include>${project.groupId}:activecluster</include>
          <include>commons-beanutils:commons-beanutils</include>
          <include>commons-collections:commons-collections</include>
          <include>commons-httpclient:commons-httpclient</include>

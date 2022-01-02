@@ -27,12 +27,16 @@
   <parent>
     <groupId>org.apache.activemq</groupId>
     <artifactId>activemq-parent</artifactId>
-    <version>4.1.1</version>
+    <version>4.1.1-j8</version>
   </parent>
 
   <artifactId>activemq-test-atomikos</artifactId>
   <packaging>jar</packaging>
   <name>ActiveMQ :: Atomikos System Test</name>
+
+  <properties>
+    <atomikos.version>3.2.3</atomikos.version>
+  </properties>
 
   <repositories>
     <!-- for the Atomikos jars -->
@@ -51,17 +55,17 @@
   <dependencies>
     <!-- activemq -->
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activemq-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activemq-core</artifactId>
       <scope>compile</scope>
       <type>test-jar</type>
     </dependency>
     <dependency>
-      <groupId>${pom.groupId}</groupId>
+      <groupId>${project.groupId}</groupId>
       <artifactId>activeio-core</artifactId>
     </dependency>
     <dependency>
@@ -73,22 +77,22 @@
     <dependency>
       <groupId>com.atomikos</groupId>
       <artifactId>transactions</artifactId>
-      <version>3.1.0</version>
+      <version>${atomikos.version}</version>
     </dependency>
     <dependency>
       <groupId>com.atomikos</groupId>
       <artifactId>transactions-api</artifactId>
-      <version>3.1.0</version>
+      <version>${atomikos.version}</version>
     </dependency>
     <dependency>
       <groupId>com.atomikos</groupId>
       <artifactId>transactions-jta</artifactId>
-      <version>3.1.0</version>
+      <version>${atomikos.version}</version>
     </dependency>
     <dependency>
       <groupId>com.atomikos</groupId>
       <artifactId>atomikos-util</artifactId>
-      <version>3.1.0</version>
+      <version>${atomikos.version}</version>
     </dependency>
 
     <dependency>

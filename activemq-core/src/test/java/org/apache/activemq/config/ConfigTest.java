@@ -75,10 +75,12 @@ public class ConfigTest extends TestCase {
      */
 
     /*
-     * This tests creating a journal persistence adapter using the persistence adapter factory bean
+     * This test creates a journal persistence adapter using the persistence adapter factory bean.
      */
     public void testJournaledJDBCConfig() throws Exception {
-//        System.out.print("Checking journaled JDBC persistence adapter configuration... ");
+
+        if (log.isDebugEnabled())
+            log.debug("testJournaledJDBCConfig() start");
 
         File journalFile = new File(JOURNAL_ROOT + "testJournaledJDBCConfig/journal");
         recursiveDelete(journalFile);
@@ -98,16 +100,17 @@ public class ConfigTest extends TestCase {
             assertTrue("Should have created a journal directory at " + journalFile.getAbsolutePath(), journalFile.exists());
 
             
-            // Check persistence factory configurations
-//            System.out.print("Checking persistence adapter factory settings... ");
+            // TODO Check persistence factory configurations
             JournalPersistenceAdapter pa = (JournalPersistenceAdapter) broker.getPersistenceAdapter();
-            
+
             log.info("Success");
         } finally {
             if (broker != null) {
                 broker.stop();
             }
         }
+        if (log.isDebugEnabled())
+            log.debug("testJournaledJDBCConfig() end");
     }
 
     /*

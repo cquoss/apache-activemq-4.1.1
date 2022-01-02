@@ -13,3 +13,10 @@ buildNumber.properties
 # IntelliJ IdeaIU
 .idea/
 *.iml
+# Apache ActiveMQ
+ActiveMQConnections.dot
+activemq-data/
+/data/
+/activemq-core/derbydb/
+/activemq-core/testJdbcConfig/
+/activemq-core/derby.log

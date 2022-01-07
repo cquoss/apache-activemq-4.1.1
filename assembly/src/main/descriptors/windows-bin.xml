@@ -49,7 +49,7 @@
     <!-- Copy over files that should not get the line endings converted -->
     <fileSet>
       <directory>src/release</directory>
-      <outputDirectory></outputDirectory>
+        <outputDirectory/>
       <includes>
         <include>conf/*.ts</include>
         <include>conf/*.ks</include>

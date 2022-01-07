@@ -228,18 +228,19 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.1</version>
+        <version>1.8</version>
         <executions>
           <execution>
             <id>run-jar</id>
             <phase>package</phase>
             <configuration>
               <tasks>
-                <jar destfile="target/run.jar" basedir="target/classes">
-                      <include name="org/apache/activemq/console/Main*.class"/>
-                      <manifest>
-                        <attribute name="Main-Class" value="org.apache.activemq.console.Main"/>
-                      </manifest>
+                <jar destfile="target/run.jar"
+                    basedir="target/${project.artifactId}-${project.version}-unpack-console/${project.artifactId}-${project.version}/target/classes">
+                  <include name="org/apache/activemq/console/Main*.class"/>
+                  <manifest>
+                    <attribute name="Main-Class" value="org.apache.activemq.console.Main"/>
+                  </manifest>
                 </jar>
               </tasks>
             </configuration>
@@ -250,9 +251,10 @@
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <forkMode>pertest</forkMode>
+          <reuseForks>false</reuseForks>
           <excludes>
             <!-- These tests run too slow to execute as part of the unit tests -->
             <exclude implementation="java.lang.String">**/DefaultStoreBrokerTest.*</exclude>
@@ -266,27 +268,26 @@
           </includes>
         </configuration>
       </plugin>
-      <!-- plugin>
-        <groupId>org.apache.activemq</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <version>4.1-incubator</version>
-        <executions>
-          <execution>
-            <phase>compile</phase>
-            <goals>
-              <goal>createbundle</goal>
-            </goals>
-            <configuration>
-              <includes>activemq-core,activemq-console,activeio-core,activemq-jaas,activemq-optional,backport-util-concurrent,commons-logging,geronimo-jms_1.1_spec,geronimo-j2ee-management_1.0_spec,derby</includes>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.1</version>
+        <version>3.3.0</version>
+        <configuration>
+          <tarLongFileMode>gnu</tarLongFileMode>
+        </configuration>
         <executions>
+          <execution>
+            <id>unpack-console</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>src/main/descriptors/unpack-console.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
           <execution>
             <id>unix-bin</id>
             <phase>package</phase>
@@ -360,13 +361,13 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.1</version>
+            <version>3.2.0</version>
             <executions>
               <execution>
                 <id>src</id>
                 <phase>package</phase>
                 <goals>
-                  <goal>attached</goal>
+                  <goal>single</goal>
                 </goals>
                 <configuration>
                   <descriptors>

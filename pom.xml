@@ -832,22 +832,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-one-plugin</artifactId>
-        <version>1.0</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>install-maven-one-repository</goal>
-              <goal>deploy-maven-one-repository</goal>
-            </goals>
-            <configuration>
-              <remoteRepositoryId>apache.m1.releases</remoteRepositoryId>
-              <remoteRepositoryUrl>${m1-dist-repo-url}</remoteRepositoryUrl>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>

@@ -42,7 +42,7 @@
     <!-- for the Atomikos jars -->
     <repository>
       <id>logicblaze.deps</id>
-      <url>http://repo.logicblaze.com/maven2-all</url>
+      <url>https://repo.logicblaze.com/maven2-all</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
